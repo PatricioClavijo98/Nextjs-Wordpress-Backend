@@ -1,0 +1,1 @@
+luego necesito separar los controladores de las rutas.je
