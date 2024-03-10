@@ -8,6 +8,7 @@ import helmet from 'helmet'
 import categoriesRoutes from './routes/categoriasController.js'
 import authRoutes from './routes/authController.js'
 import productosRoutes from './routes/productosController.js'
+import ordersRoutes from './routes/ordersController.js'
 
 import fs from 'fs';
 import path from 'path';
@@ -84,7 +85,6 @@ const ignoreSecurityForStripe = (req, res, next) => {
 app.use(cors());
 app.use(express.json());
 
-
 // Conexión a MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Conectado a MongoDB Atlas'))
@@ -102,6 +102,7 @@ app.use('/auth', authRoutes);
 // store config
 app.use('/api/categorias', categoriesRoutes);
 app.use('/api/productos', productosRoutes);
+app.use('/api/orders', ordersRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
