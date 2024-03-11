@@ -40,5 +40,21 @@ router.get('/', verifyToken, initializeWooCommerce, async (req, res) => {
     }
 });
 
+router.put('/:orderId', verifyToken, initializeWooCommerce, async (req, res) => {
+    const orderId = req.params.orderId;
+    const updatedOrderData = req.body;
+
+    try {
+        // Realiza la solicitud a WooCommerce para actualizar la orden
+        const response = await req.woocommerce.put(`orders/${orderId}`, updatedOrderData);
+
+        // Si la actualización es exitosa, envía la respuesta
+        res.status(200).json(response.data);
+    } catch (error) {
+        console.error(`Error al actualizar la orden ${orderId} en WooCommerce:`, error);
+        res.status(500).json({ message: `Error al actualizar la orden en WooCommerce`, error });
+    }
+});
+
 
 export default router;
