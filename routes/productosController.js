@@ -21,7 +21,6 @@ router.get('/', verifyToken, initializeWooCommerce, async (req, res) => {
             page: page,
         };
 
-        // Ahora puedes usar req.woocommerce directamente
         if (search) {
             params.search = search; // WooCommerce acepta un parámetro 'search' para filtrar los productos
         }

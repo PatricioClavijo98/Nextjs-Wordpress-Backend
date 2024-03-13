@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', verifyToken, initializeWooCommerce, async (req, res) => {
     try {
         const page = req.query.page || 1;
-        const status = req.query.status || ''; // Opcional: añade filtrado por estado de la orden
+        const status = req.query.status || ''; 
 
         const params = {
             per_page: 15,
@@ -17,6 +17,7 @@ router.get('/', verifyToken, initializeWooCommerce, async (req, res) => {
 
         // Filtrado opcional por estado de la orden
         if (status) {
+            console.log(status);
             params.status = status;
         }
 
