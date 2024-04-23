@@ -9,6 +9,7 @@ import categoriesRoutes from './routes/categoriasController.js'
 import authRoutes from './routes/authController.js'
 import productosRoutes from './routes/productosController.js'
 import ordersRoutes from './routes/ordersController.js'
+import clientsRoutes from './routes/clientsController.js'
 
 import fs from 'fs';
 import path from 'path';
@@ -103,6 +104,7 @@ app.use('/auth', authRoutes);
 app.use('/api/categorias', categoriesRoutes);
 app.use('/api/productos', productosRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/clients', clientsRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
