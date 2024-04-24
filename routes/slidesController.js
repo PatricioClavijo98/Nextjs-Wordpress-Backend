@@ -9,7 +9,7 @@ import Slide from '../models/slidesSchema.js';
 const upload = multer();
 const router = express.Router();
 
-router.get('/:domain', async (req, res) => {
+router.get('/', async (req, res) => {
     const domain = req.query.domain;
 
     try {
