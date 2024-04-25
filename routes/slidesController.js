@@ -12,6 +12,8 @@ const router = express.Router();
 router.get('/', async (req, res) => {
     const domain = req.query.domain;
 
+    console.log("Domain", domain);
+
     try {
         // Recuperar todos los slides desde la base de datos
         const slides = await Slide.find({ dominio: domain });
