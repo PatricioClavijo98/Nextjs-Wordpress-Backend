@@ -33,6 +33,7 @@ var whiteList = [
     /meteoracommerce\.com$/,
     'https://enelectronico.com',
     'https://www.enelectronico.com',
+    'https://nextjs-wordpress-frontend.vercel.app/'
 ];
 
 
