@@ -27,6 +27,10 @@ const app = express();
 var whiteList = [
     /localhost:3000$/, // Esto permitirá cualquier subdominio en localhost:3000
     'http://localhost:3000',
+    '^https?:\/\/([a-z0-9-]+\.)*meteoracommerce\.com$',
+    'https://meteoracommerce.com',
+    'https://www.meteoracommerce.com',
+    /meteoracommerce\.com$/,
     'https://enelectronico.com',
     'https://www.enelectronico.com',
 ];
