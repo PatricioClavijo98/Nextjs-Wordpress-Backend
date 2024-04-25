@@ -72,19 +72,7 @@ const corsOptions = {
     },
 };
 
-const ignoreSecurityForStripe = (req, res, next) => {
-    if (req.path.startsWith('/store/webhook')) {
-        console.log('Entra a webhookc');
-        next();
-    } else {
-        
-        cors(corsOptions)(req, res, () => {
-            helmet()(req, res, next);
-        });
-    }
-};
-
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Conexión a MongoDB
