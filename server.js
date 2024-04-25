@@ -35,21 +35,6 @@ var whiteList = [
     'https://www.enelectronico.com',
 ];
 
-export async function loadWhiteList() {
-    const domains = await CustomDomain.find({ verified: true });
-    const additionalDomains = domains.map(domain => {
-        if (domain.verified) {
-            return `www.${domain.domain}`;
-        }
-    });
-    whiteList = [...whiteList, ...additionalDomains];
-}
-
-
-
-//loadWhiteList(); //TODO: añadir este método cuando se agregue un dominio al servidor
-
-
 
 const corsOptions = {
     origin: function (origin, callback) {
