@@ -30,8 +30,9 @@ router.get('/', async (req, res) => {
 
 router.post('/', verifyToken, initializeWooCommerce, getUser, upload.single('image'), async (req, res) => {
     try {
-        const usuario = req.usuario;
-        console.log(req.file);
+        var usuario = req.usuario;
+        
+        usuario.url = usuario.url.replace('www.', '');
 
         const uploadedImage = await subirImagenAWordPress(req.file, usuario);
 
